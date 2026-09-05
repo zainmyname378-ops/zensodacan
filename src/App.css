@@ -1,0 +1,1801 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #050708;
+  --bg-soft: #0a0d0e;
+
+  --white: #f5f5f2;
+  --muted: rgba(245, 245, 242, 0.58);
+  --faint: rgba(245, 245, 242, 0.32);
+
+  --glass: rgba(255, 255, 255, 0.055);
+  --glass-hover: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.14);
+
+  --display: 'Oswald', sans-serif;
+  --sans: 'Manrope', sans-serif;
+  --body: 'DM Sans', sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--body);
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   APP
+========================= */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 86px;
+
+  padding: 0 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 1000;
+
+  pointer-events: none;
+}
+
+.navbar > * {
+  pointer-events: auto;
+}
+
+.logo {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+
+  padding: 11px 18px;
+
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+
+  background: rgba(5, 7, 8, 0.35);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+/* =========================
+   SECTION NAV
+========================= */
+
+.section-nav {
+  position: fixed;
+  right: 42px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  z-index: 900;
+}
+
+.section-nav-number {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+.section-nav-line {
+  width: 1px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.section-nav-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease;
+}
+
+.section-nav-dot.active {
+  background: var(--white);
+  transform: scale(1.5);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.035),
+      transparent 45%
+    ),
+    var(--bg);
+}
+
+.hero canvas {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* Hero content sits above the can */
+
+.hero-title {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  max-width: 650px;
+
+  overflow: visible;
+}
+
+.eyebrow {
+  margin-bottom: 20px;
+
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.hero-title {
+  margin: 0;
+  max-width: 600px;
+}
+
+
+.hero-description {
+  margin-top: 30px;
+
+  max-width: 330px;
+
+  font-family: var(--body);
+  font-size: 13px;
+  line-height: 1.7;
+
+  color: var(--muted);
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 30px;
+  padding: 13px 18px;
+
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+
+  background: var(--glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--white);
+
+  pointer-events: auto;
+}
+
+.hero-cta-arrow {
+  font-size: 14px;
+}
+
+/* =========================
+   SCROLL INDICATOR
+========================= */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  z-index: 10;
+
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+
+  color: var(--faint);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 38px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.45),
+    transparent
+  );
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  overflow: hidden;
+
+  background: var(--bg);
+}
+
+.section-inner {
+  position: relative;
+
+  width: min(1200px, 86vw);
+  min-height: 100svh;
+
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+/* Section heading */
+
+.section-heading {
+  position: relative;
+  z-index: 5;
+
+  max-width: 650px;
+
+  text-align: left;
+}
+
+.section-number {
+  margin-bottom: 18px;
+
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+.section-title {
+  margin: 0;
+
+  font-family: var(--display);
+  font-size: clamp(64px, 8vw, 120px);
+  font-weight: 500;
+
+  line-height: 0.86;
+  letter-spacing: -0.025em;
+
+  text-transform: uppercase;
+}
+
+.section-copy {
+  max-width: 350px;
+  margin-top: 25px;
+
+  font-size: 13px;
+  line-height: 1.7;
+
+  color: var(--muted);
+}
+
+/* =========================
+   FLAVOR SECTION
+========================= */
+
+.flavor-section {
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,0.04),
+      transparent 42%
+    ),
+    #07090a;
+}
+
+.flavor-gallery {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+}
+
+.flavor-video {
+  position: absolute;
+
+  width: min(540px, 45vw);
+  height: min(680px, 70vh);
+
+  object-fit: contain;
+
+  transition:
+    opacity 0.8s cubic-bezier(.22,1,.36,1),
+    transform 1s cubic-bezier(.22,1,.36,1);
+
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.55));
+}
+
+.flavor-video.hidden {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.flavor-video.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Flavor labels */
+
+.flavor-label {
+  position: absolute;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.flavor-label span:first-child {
+  font-family: var(--display);
+  font-size: 17px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.flavor-label span:last-child {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: var(--faint);
+}
+
+.flavor-label.active span:first-child {
+  color: var(--white);
+}
+
+.flavor-label:not(.active) {
+  opacity: 0.45;
+}
+
+.flavor-label:hover {
+  opacity: 1;
+}
+
+/* =========================
+   VIDEO SECTION
+========================= */
+
+.video-section {
+  background: #050707;
+}
+
+.full-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.78;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(3,5,6,0.82),
+      rgba(3,5,6,0.12) 65%
+    ),
+    linear-gradient(
+      to top,
+      rgba(3,5,6,0.7),
+      transparent 45%
+    );
+
+  z-index: 2;
+}
+
+.video-content {
+  position: absolute;
+  left: 7vw;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 4;
+
+  text-align: left;
+}
+
+.video-content .section-title {
+  max-width: 600px;
+}
+
+.info-row {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 40px;
+}
+
+.info-card {
+  min-width: 130px;
+
+  padding: 16px;
+
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.045);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.info-card-number {
+  font-family: var(--display);
+  font-size: 22px;
+}
+
+.info-card-label {
+  margin-top: 5px;
+
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+/* =====================================================
+   REFRESH YOUR STATE
+===================================================== */
+
+
+  .nav-links {
+    display: none;
+  }
+
+  .section-nav {
+    right: 18px;
+  }
+
+ .hero-content {
+
+  position: absolute;
+
+  left: 7vw;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: auto;
+
+  max-width: 650px;
+
+  z-index: 20;
+
+  text-align: left;
+
+  pointer-events: none;
+
+}
+ .hero-title {
+
+  position: relative;
+
+  margin: 0;
+
+  width: auto;
+
+  max-width: 650px;
+
+  overflow: visible;
+
+}
+  .section-title {
+    font-size: clamp(58px, 16vw, 90px);
+  }
+
+  .flavor-video {
+    width: 80vw;
+    height: 60vh;
+  }
+
+  .info-row {
+    overflow-x: auto;
+  }
+
+  .info-card {
+    min-width: 110px;
+  }
+  .section-two {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  background: #080808;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flavor-video-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flavor-video {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.flavor-selector {
+  position: absolute;
+
+  bottom: 50px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 15px;
+
+  z-index: 10;
+}
+
+.flavor-selector button {
+  padding: 12px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.flavor-selector button.active {
+  background: white;
+  color: black;
+}
+}
+css
+/* =====================================================
+   SECTION 2 — FOUR FLAVOR CARDS
+===================================================== */
+
+.section-two {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+
+  padding: 120px 5vw 70px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+/* -------------------------
+   HEADER
+------------------------- */
+
+.flavor-section-header p {
+  margin: 20px 0 0;
+
+  max-width: 360px;
+
+  font-family: var(--body);
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 400;
+
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+
+  color: var(--muted);
+}
+
+.flavor-section-header > span {
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: var(--faint);
+}
+
+.flavor-section-header h2 {
+  margin: 0;
+
+  font-family: var(--display);
+  font-size: clamp(52px, 6vw, 90px);
+  font-weight: 500;
+
+  line-height: 0.84;
+  letter-spacing: -0.025em;
+
+  text-transform: uppercase;
+}
+
+.flavor-section-header p {
+  margin: 18px 0 0;
+
+  font-size: 12px;
+  color: var(--muted);
+}
+
+
+/* -------------------------
+   CARDS CONTAINER
+------------------------- */
+
+.flavor-cards {
+  position: relative;
+  z-index: 4;
+
+  width: 100%;
+  height: 58vh;
+  min-height: 420px;
+
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+}
+
+
+/* -------------------------
+   INDIVIDUAL CARD
+------------------------- */
+
+.flavor-card {
+  position: relative;
+
+  flex: 1;
+  min-width: 0;
+
+  height: 100%;
+
+  padding: 0;
+
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  background: #101213;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  transition:
+    flex 0.65s cubic-bezier(.22,1,.36,1),
+    transform 0.65s cubic-bezier(.22,1,.36,1),
+    border-color 0.4s ease,
+    box-shadow 0.65s cubic-bezier(.22,1,.36,1);
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+
+/* Selected card becomes the hero */
+
+.flavor-card.selected {
+  flex: 1.65;
+
+  border-color: rgba(255,255,255,0.55);
+
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 35px 80px rgba(0,0,0,0.55);
+}
+
+
+/* Other cards become quieter */
+
+.flavor-card:not(.selected) {
+  opacity: 0.68;
+}
+
+.flavor-card:not(.selected):hover {
+  opacity: 0.92;
+  transform: translateY(-4px);
+}
+
+
+/* -------------------------
+   VIDEO
+------------------------- */
+
+.flavor-card-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1.02);
+
+  transition:
+    transform 1s cubic-bezier(.22,1,.36,1),
+    filter 0.6s ease;
+}
+
+.flavor-card.selected .flavor-card-video {
+  transform: scale(1.08);
+}
+
+
+/* -------------------------
+   DARK OVERLAY
+------------------------- */
+
+.flavor-card-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.82),
+      rgba(0,0,0,0.18) 55%,
+      rgba(0,0,0,0.05)
+    );
+
+  transition: background 0.5s ease;
+}
+
+.flavor-card.selected .flavor-card-overlay {
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.86),
+      rgba(0,0,0,0.10) 65%,
+      rgba(0,0,0,0.02)
+    );
+}
+
+
+/* -------------------------
+   CARD CONTENT
+------------------------- */
+
+.flavor-card-content h3 {
+  margin: 0;
+
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 500;
+
+  line-height: 0.9;
+  letter-spacing: 0.015em;
+
+  text-transform: uppercase;
+
+  color: var(--white);
+}
+
+.flavor-card-number {
+  margin-bottom: 7px;
+
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+
+  color: rgba(255,255,255,0.55);
+}
+
+.flavor-card-content h3 {
+  margin: 0;
+
+  font-family: var(--display);
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 500;
+
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+
+  text-transform: uppercase;
+
+  color: white;
+}
+
+.flavor-card-action {
+  margin-top: 13px;
+
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: rgba(255,255,255,0.62);
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.flavor-card:hover .flavor-card-action,
+.flavor-card.selected .flavor-card-action {
+  color: white;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+  .section-two {
+    min-height: 100svh;
+
+    padding:
+      105px
+      18px
+      35px;
+  }
+
+  .flavor-section-header {
+    margin-bottom: 28px;
+  }
+
+  .flavor-section-header h2 {
+    font-size: clamp(48px, 15vw, 72px);
+  }
+
+  .flavor-section-header p {
+    font-size: 11px;
+  }
+
+  .flavor-cards {
+    height: 58svh;
+    min-height: 360px;
+
+    gap: 8px;
+  }
+
+  .flavor-card {
+    border-radius: 16px;
+  }
+
+  .flavor-card.selected {
+    flex: 2.2;
+
+    transform: translateY(-5px);
+  }
+
+  .flavor-card:not(.selected) {
+    flex: 0.6;
+  }
+
+  .flavor-card-content {
+    inset: auto 14px 16px;
+  }
+
+  .flavor-card-content h3 {
+    font-size: clamp(22px, 7vw, 38px);
+  }
+
+  .flavor-card-number {
+    font-size: 7px;
+  }
+
+  .flavor-card-action {
+    font-size: 7px;
+    margin-top: 9px;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+
+@media (max-width: 480px) {
+
+  .section-two {
+    padding-top: 95px;
+  }
+
+  .flavor-section-header h2 {
+    font-size: 48px;
+  }
+
+  .flavor-cards {
+    height: 56svh;
+  }
+
+  .flavor-card:not(.selected) {
+    flex: 0.45;
+  }
+
+  .flavor-card.selected {
+    flex: 2.4;
+  }
+
+  .flavor-card-content h3 {
+    font-size: 25px;
+  }
+}
+/* =====================================================
+   SECTION 3 — PRODUCT VIDEO
+===================================================== */
+
+.section-three {
+  position: relative;
+
+  width: 100%;
+  height: 100svh;
+
+  overflow: hidden;
+
+  background: #080808;
+}
+
+.section-three-video {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+}
+.hero-title {
+  position: static;
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+}
+
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+  .section-three
+  {
+    height: 100svh;
+  }
+
+  .section-three-video
+  {
+    object-fit: cover;
+  }
+}
+/* =====================================================
+   SECTION 3
+===================================================== */
+
+
+.section-three video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+/* =====================================================
+   REFRESH YOUR STATE — HERO TYPOGRAPHY
+===================================================== */
+
+.hero-title {
+  position: relative;
+  z-index: 25;
+  width: 100%;
+  overflow: visible;
+}
+
+/* =========================================
+   REFRESH TEXT POSITIONING WRAPPER
+========================================= */
+
+.hero {
+  position: relative;
+  height: 100svh;
+}
+
+.refresh-position {
+  position: absolute;
+
+  left: 8vw;
+.refresh-position {
+  position: absolute;
+
+  left: 8vw;
+  top: 10%;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+
+  z-index: 30;
+  pointer-events: none;
+}
+
+  z-index: 30;
+  pointer-events: none;
+}
+
+.refresh-state {
+  position: relative !important;
+
+  transform: rotate(-4deg) !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  font-family: var(--display);
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 600;
+
+  line-height: 0.82;
+  letter-spacing: -0.035em;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  color: #d8ff3e;
+}
+
+.refresh-state span:last-child {
+  margin-left: 35px;
+}
+/* =====================================================
+   SECTION 3 — FINAL STATE
+===================================================== */
+
+.section-three {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  background: #05070a;
+}
+
+
+/* =====================================================
+   VIDEO
+===================================================== */
+
+.section-three-video {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 1;
+}
+
+
+/* =====================================================
+   CINEMATIC OVERLAY
+===================================================== */
+
+.section-three-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 7, 10, 0.75) 0%,
+      rgba(5, 7, 10, 0.35) 45%,
+      rgba(5, 7, 10, 0.08) 100%
+    );
+
+  z-index: 2;
+}
+
+
+/* =====================================================
+   SECTION NUMBER
+===================================================== */
+
+.section-three-number {
+  position: absolute;
+
+  top: 8vh;
+  left: 8vw;
+
+  z-index: 5;
+
+  font-family: var(--display);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  color: rgba(196, 181, 253, 0.65);
+
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.section-three-content {
+  position: relative;
+
+  z-index: 5;
+
+  margin-left: 8vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
+.section-three-title {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+
+  font-family: var(--display);
+
+  font-size: clamp(52px, 6vw, 100px);
+
+  font-weight: 600;
+
+  line-height: 0.82;
+
+  letter-spacing: -0.04em;
+
+  text-transform: uppercase;
+
+  color: #C4B5FD;
+}
+
+
+/* Small stagger effect */
+
+.section-three-title span:last-child {
+  margin-left: 40px;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.section-three-description {
+  margin-top: 35px;
+
+  font-family: var(--display);
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  line-height: 1.7;
+
+  letter-spacing: 0.14em;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  text-transform: uppercase;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.section-three-button {
+  margin-top: 35px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 14px 20px;
+
+  border: 1px solid rgba(196, 181, 253, 0.5);
+
+  background: rgba(196, 181, 253, 0.08);
+
+  color: #C4B5FD;
+
+  font-family: var(--display);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.section-three-button:hover {
+  background: #C4B5FD;
+
+  color: #08090d;
+
+  transform: translateX(8px);
+}
+
+
+.section-three-arrow {
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+
+.section-three-button:hover .section-three-arrow {
+  transform: translateX(5px);
+}
+/* =====================================================
+   SECTION 1 — HERO BUTTON
+===================================================== */
+
+.hero-button {
+  margin-top: 30px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  padding: 14px 22px;
+
+  border: 1px solid rgba(216, 255, 62, 0.28);
+  border-radius: 999px;
+
+  background: rgba(5, 7, 8, 0.55);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  color: #f5f5f2;
+
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.hero-button:hover {
+  background: #D8FF3E;
+  color: #080a05;
+
+  border-color: #D8FF3E;
+
+  box-shadow:
+    0 10px 35px rgba(216, 255, 62, 0.18);
+
+  transform: translateY(-2px);
+}
+
+.button-arrow {
+  font-size: 16px;
+
+  transition: transform 0.35s ease;
+}
+
+.hero-button:hover .button-arrow {
+  transform: translateX(5px);
+}
+/* =====================================================
+   SECTION 3 — EXPLORE ZEN BUTTON
+===================================================== */
+
+.section-three-button {
+  border-radius: 999px !important;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease !important;
+}
+
+.section-three-button:hover {
+  background: #C4B5FD !important;
+  color: #08090d !important;
+
+  border-color: #C4B5FD !important;
+
+  box-shadow:
+    0 10px 35px rgba(196, 181, 253, 0.18);
+
+  transform: translateY(-2px) !important;
+}
+/* =====================================================
+   SECTION 2 — FLAVOR CARD BUTTON INTERACTION
+===================================================== */
+
+.flavor-card {
+  transition:
+    flex 0.65s cubic-bezier(.22, 1, .36, 1),
+    transform 0.45s cubic-bezier(.22, 1, .36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.45s ease,
+    opacity 0.35s ease;
+}
+
+.flavor-card:hover {
+  border-color: rgba(255, 184, 77, 0.75);
+
+  box-shadow:
+    0 20px 55px rgba(255, 184, 77, 0.12);
+}
+
+.flavor-card.selected {
+  border-color: #FFB84D;
+
+  box-shadow:
+    0 25px 70px rgba(255, 184, 77, 0.16);
+}
+/* =====================================================
+   HERO BUTTON POSITION FIX
+===================================================== */
+
+.hero-content {
+  position: absolute;
+  left: 7vw;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: auto;
+  max-width: 650px;
+
+  z-index: 20;
+  text-align: left;
+
+  pointer-events: none;
+}
+
+/* Allow the button itself to receive hover/click */
+.hero-button {
+  pointer-events: auto;
+}
+
+.section-three-button {
+  border-radius: 999px;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.section-three-button:hover {
+  background: #C4B5FD !important;
+  color: #08090d !important;
+  border-color: #C4B5FD !important;
+
+  transform: translateX(6px);
+
+  box-shadow: 0 10px 35px rgba(196, 181, 253, 0.18);
+}
+
+/* =====================================================
+   HERO BUTTON — POSITION
+===================================================== */
+
+.hero-button {
+  position: relative;
+  top: 95px;
+}
+/* =====================================================
+   SECTION 3 — BUTTON FINAL POLISH
+===================================================== */
+
+.section-three-button {
+  border-radius: 999px !important;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.section-three-button:hover {
+  background: #C4B5FD !important;
+  color: #08090d !important;
+  border-color: #C4B5FD !important;
+
+  transform: translateX(6px);
+
+  box-shadow:
+    0 10px 35px rgba(196, 181, 253, 0.18);
+}
+
+.section-three-arrow {
+  transition: transform 0.35s ease;
+}
+
+.section-three-button:hover .section-three-arrow {
+  transform: translateX(5px);
+}
+/* SECTION 3 ARROW ANIMATION */
+
+.section-three-button .section-three-arrow {
+  display: inline-block;
+  transition: transform 0.35s ease;
+}
+
+.section-three-button:hover .section-three-arrow {
+  transform: translateX(7px);
+}
+/* =====================================================
+   SECTION 3 — FRESH EXPLORE ZEN BUTTON
+===================================================== */
+
+.zen-explore-button {
+  margin-top: 35px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  padding: 14px 22px;
+
+  border: 1px solid rgba(196, 181, 253, 0.55);
+  border-radius: 999px;
+
+  background: rgba(196, 181, 253, 0.08);
+
+  color: #C4B5FD;
+
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* BUTTON HOVER */
+
+.zen-explore-button:hover {
+  background: #C4B5FD;
+  color: #08090d;
+
+  border-color: #C4B5FD;
+
+  box-shadow:
+    0 10px 35px rgba(196, 181, 253, 0.20);
+}
+
+
+/* ARROW */
+
+.zen-explore-arrow {
+  display: inline-block;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* ARROW HOVER */
+
+.zen-explore-button:hover .zen-explore-arrow {
+  transform: translateX(7px);
+}
+/* =====================================================
+   MENU BUTTON — FINAL ZEN STYLE
+===================================================== */
+
+.menu-button {
+  appearance: none;
+  -webkit-appearance: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 11px 17px;
+
+  border: 1px solid rgba(245, 245, 242, 0.22);
+  border-radius: 999px;
+
+  background: rgba(5, 7, 8, 0.55);
+
+  color: #f5f5f2;
+
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* HOVER */
+
+.menu-button:hover {
+  background: #D8FF3E;
+  border-color: #D8FF3E;
+
+  color: #080a05;
+
+  box-shadow:
+    0 8px 30px rgba(216, 255, 62, 0.16);
+
+  transform: translateY(-1px);
+}
+
+
+/* MENU DOTS */
+
+.menu-dots {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.menu-dots i {
+  display: block;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: currentColor;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* DOT ANIMATION */
+
+.menu-button:hover .menu-dots i:nth-child(1) {
+  transform: translateY(-2px);
+}
+
+.menu-button:hover .menu-dots i:nth-child(2) {
+  transform: translateY(2px);
+}
+
+.menu-button:hover .menu-dots i:nth-child(3) {
+  transform: translateY(-2px);
+}
+
+.menu-button:hover .menu-dots i:nth-child(4) {
+  transform: translateY(2px);
+}
